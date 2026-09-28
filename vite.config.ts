@@ -9,8 +9,7 @@ export default defineConfig({
             fileName: () => 'extension.js'
         },
         rollupOptions: {
-            external: ['vscode', 'os']
-        },
-        outDir: 'dist'
+            external: ['vscode']
+        }
     }
 })
