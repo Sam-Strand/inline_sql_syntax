@@ -61,7 +61,7 @@
         },
         {
             "comment": "HJSON array element on its own line, SQL keyword",
-            "begin": "^(\\s*)(?i)(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
+            "begin": "^(\\s*)(?i)(SELECT |INSERT |DELETE |UPDATE |CREATE |DROP )",
             "beginCaptures": {
                 "1": { "name": "punctuation.whitespace.leading.hjson" },
                 "2": { "name": "keyword.sql" }

@@ -19,7 +19,7 @@
         },
         {
             "comment": "SQL inside HJSON ''' string, SQL keyword",
-            "begin": "(?i)(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
+            "begin": "(?i)(SELECT |INSERT |DELETE |UPDATE |CREATE |DROP )",
             "beginCaptures": {
                 "1": { "name": "keyword.sql" }
             },
