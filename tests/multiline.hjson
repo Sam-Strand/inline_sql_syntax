@@ -18,3 +18,17 @@ some_table: "book"
 f_string: """--sql
 select * from {some_table}
 """
+array:[
+    '''--sql
+    CREATE TABLE IF NOT EXISTS "{schema}".namespaces (
+        uid my_id PRIMARY KEY,
+        label text,
+        upload timestamptz NOT NULL DEFAULT now()
+    )
+    '''
+    '''--sql
+    CREATE TABLE IF NOT EXISTS "{schema}".units (
+        label text PRIMARY KEY
+    )
+    '''
+]

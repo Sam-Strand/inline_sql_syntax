@@ -2,12 +2,13 @@ query: SELECT 'id', 'name', 'age' FROM user;
 querys:
 [
     SELECT title FROM book;
+    SELECT "{title}" FROM book;
     --sql; SELECT title FROM book;
     'SELECT id FROM user;'
     "SELECT id FROM user;"
     '''SELECT id FROM user;'''
     """SELECT id FROM user;"""
-    '''--sql DELETE FROM logs;'''
+    '''--sql DELETE FROM "{logs}" WHERE;'''
 ]
 q1: 'SELECT id FROM user;'
 q2: "SELECT id FROM user;"

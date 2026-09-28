@@ -9,7 +9,7 @@
     "patterns": [
         {
             "comment": "HJSON '''...''' multiline, -- sql marker",
-            "begin": "(''')(--\\s*sql)",
+            "begin": "(''')\\s*(--\\s*sql)",
             "beginCaptures": {
                 "2": {
                     "name": "comment.sql"
@@ -24,7 +24,7 @@
         },
         {
             "comment": "HJSON '''...''' multiline, SQL keyword",
-            "begin": "(?i)(''')(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
+            "begin": "(''')\\s*(?i)(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
             "beginCaptures": {
                 "2": {
                     "name": "keyword.sql"
@@ -39,7 +39,7 @@
         },
         {
             "comment": "HJSON \"\"\"...\"\"\" multiline, -- sql marker",
-            "begin": "(\"\"\")(--\\s*sql)",
+            "begin": "(\"\"\")\\s*(--\\s*sql)",
             "beginCaptures": {
                 "2": {
                     "name": "comment.sql"
@@ -54,7 +54,7 @@
         },
         {
             "comment": "HJSON \"\"\"...\"\"\" multiline, SQL keyword",
-            "begin": "(?i)(\"\"\")(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
+            "begin": "(\"\"\")\\s*(?i)(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
             "beginCaptures": {
                 "2": {
                     "name": "keyword.sql"
