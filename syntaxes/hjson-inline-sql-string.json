@@ -1,0 +1,33 @@
+{
+    "scopeName": "hjson-inline-sql-string.injection",
+    "fileTypes": [
+        "hjson"
+    ],
+    "injectionSelector": "L:source.hjson string.quoted.multiline.hjson -comment",
+    "patterns": [
+        {
+            "comment": "SQL inside HJSON ''' string, -- sql marker",
+            "begin": "(--\\s*sql)",
+            "beginCaptures": {
+                "1": { "name": "comment.sql" }
+            },
+            "end": "(?=''')",
+            "contentName": "meta.embedded.sql",
+            "patterns": [
+                { "include": "source.sql" }
+            ]
+        },
+        {
+            "comment": "SQL inside HJSON ''' string, SQL keyword",
+            "begin": "(?i)(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
+            "beginCaptures": {
+                "1": { "name": "keyword.sql" }
+            },
+            "end": "(?=''')",
+            "contentName": "meta.embedded.sql",
+            "patterns": [
+                { "include": "source.sql" }
+            ]
+        }
+    ]
+}

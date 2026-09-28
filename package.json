@@ -37,7 +37,7 @@
         "onLanguage:sql",
         "onLanguage:php",
         "onLanguage:lua",
-		"onLanguage:hjson"
+        "onLanguage:hjson"
     ],
     "main": "./dist/extension.js",
     "scripts": {
@@ -126,6 +126,16 @@
             {
                 "path": "./syntaxes/hjson-multiline.json",
                 "scopeName": "hjson-multiline.injection",
+                "injectTo": [
+                    "source.hjson"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.sql": "sql"
+                }
+            },
+            {
+                "path": "./syntaxes/hjson-inline-sql-string.json",
+                "scopeName": "hjson-inline-sql-string.injection",
                 "injectTo": [
                     "source.hjson"
                 ],

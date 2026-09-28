@@ -1,32 +1,41 @@
-query: """--sql
+query:
+    '''
+    --sql
     SELECT 'id', 'name', 'age' FROM book;
-"""
-
-another: """--sql
+    '''
+another:
+    '''
+    --sql
     delete * from book;
-"""
-
-another: '''--sql
+    '''
+another2:
+    '''
+    --sql
     delete * from book;
-'''
-
-query_with_db_identifiers: """--sql
+    '''
+query_with_db_identifiers:
+    '''
+    --sql
     delete * from "book";
-"""
-
-some_table: "book"
-f_string: """--sql
-select * from {some_table}
-"""
-array:[
-    '''--sql
+    '''
+some_table: book
+f_string:
+    '''
+    --sql
+    select * from {some_table}
+    '''
+array:
+[
+    '''
+    --sql
     CREATE TABLE IF NOT EXISTS "{schema}".namespaces (
         uid my_id PRIMARY KEY,
         label text,
         upload timestamptz NOT NULL DEFAULT now()
     )
     '''
-    '''--sql
+    '''
+    --sql
     CREATE TABLE IF NOT EXISTS "{schema}".units (
         label text PRIMARY KEY
     )
