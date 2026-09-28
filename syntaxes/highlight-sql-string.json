@@ -135,6 +135,35 @@
                     "include": "source.sql"
                 }
             ]
+        },
+        {
+            "comment": "Python multi-line strings (single quotes)",
+            "begin": "f?(''')(--\\s*sql)",
+            "beginCaptures": {
+                "2": {
+                    "name": "comment.sql"
+                }
+            },
+            "end": "(''')",
+            "patterns": [
+                {
+                    "include": "source.sql"
+                }
+            ]
+        },
+        {
+            "begin": "(?i)(''')(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX)",
+            "beginCaptures": {
+                "2": {
+                    "name": "keyword.sql"
+                }
+            },
+            "end": "(''')",
+            "patterns": [
+                {
+                    "include": "source.sql"
+                }
+            ]
         }
     ]
 }

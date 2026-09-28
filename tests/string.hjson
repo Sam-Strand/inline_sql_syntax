@@ -1,0 +1,16 @@
+query: SELECT 'id', 'name', 'age' FROM user;
+querys:
+[
+    SELECT title FROM book;
+    --sql; SELECT title FROM book;
+    'SELECT id FROM user;'
+    "SELECT id FROM user;"
+    '''SELECT id FROM user;'''
+    """SELECT id FROM user;"""
+    '''--sql DELETE FROM logs;'''
+]
+q1: 'SELECT id FROM user;'
+q2: "SELECT id FROM user;"
+q3: '''SELECT id FROM user;'''
+q4: """SELECT id FROM user;"""
+q5: '''--sql DELETE FROM logs;'''

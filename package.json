@@ -1,16 +1,16 @@
 {
     "name": "inline-sql-syntax",
     "displayName": "Inline SQL",
-    "description": "Highlight and lint SQL strings and SQL files. Python, Go, Rust, JS, TS, Ruby, Java, C#, PHP, Lua.",
-    "version": "2.16.0",
+    "description": "Highlight and lint SQL strings and SQL files. Python, Go, Rust, JS, TS, Ruby, Java, C#, PHP, Lua, HJSON.",
+    "version": "0.0.1",
     "author": "qufiwefefwoyn <qufiwefefwoyn@gmail.com>",
-    "publisher": "qufiwefefwoyn",
+    "publisher": "Sam-Strand",
     "license": "MIT",
     "icon": "assets/logo.png",
     "repository": {
-        "url": "https://github.com/barklan/inline_sql_syntax"
+        "url": "https://github.com/Sam-Strand/inline_sql_syntax"
     },
-    "homepage": "https://github.com/barklan/inline_sql_syntax",
+    "homepage": "https://github.com/Sam-Strand/inline_sql_syntax",
     "engines": {
         "vscode": "^1.63.0"
     },
@@ -36,19 +36,15 @@
         "onLanguage:rust",
         "onLanguage:sql",
         "onLanguage:php",
-        "onLanguage:lua"
+        "onLanguage:lua",
+		"onLanguage:hjson"
     ],
-    "main": "./out/extension.js",
-    "browser": "./out/extension.js",
+    "main": "./dist/extension.js",
     "scripts": {
-        "vscode:prepublish": "npm run esbuild-base -- --minify",
-        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --external:pg-native --format=cjs --platform=node",
-        "esbuild": "npm run esbuild-base -- --sourcemap",
-        "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
-        "test-compile": "tsc -p ./",
-        "compile": "tsc -p ./",
-        "lint": "npx prettier --check ./src",
-        "watch": "tsc -watch -p ./"
+        "vscode:prepublish": "pnpm run package",
+        "compile": "vite build",
+        "watch": "vite build --watch",
+        "package": "vite build"
     },
     "contributes": {
         "grammars": [
@@ -126,6 +122,16 @@
                 "embeddedLanguages": {
                     "meta.embedded.sql": "sql"
                 }
+            },
+            {
+                "path": "./syntaxes/hjson-multiline.json",
+                "scopeName": "hjson-multiline.injection",
+                "injectTo": [
+                    "source.hjson"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.sql": "sql"
+                }
             }
         ],
         "configuration": {
@@ -176,22 +182,11 @@
     "devDependencies": {
         "@types/node": "^17.0.21",
         "@types/vscode": "^1.63.0",
-        "esbuild": "^0.14.25",
         "prettier": "2.6.2",
-        "typescript": "^4.6.2"
+        "typescript": "^4.6.2",
+        "vite": "^8.3.1"
     },
     "dependencies": {
         "sql-lint": "^0.0.19"
-    },
-    "__metadata": {
-        "id": "4d32ffbd-a404-4f22-9022-38a9e83e55f1",
-        "publisherDisplayName": "qufiwefefwoyn",
-        "publisherId": "5be51ce2-befe-4527-952a-3e1c764d2c4e",
-        "isPreReleaseVersion": false,
-        "targetPlatform": "undefined",
-        "isApplicationScoped": false,
-        "updated": false,
-        "preRelease": false,
-        "installedTimestamp": 1662490066638
     }
 }
