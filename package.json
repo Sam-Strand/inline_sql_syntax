@@ -1,8 +1,8 @@
 {
     "name": "inline-sql-syntax",
     "displayName": "Inline SQL",
-    "description": "Highlight and lint SQL strings and SQL files. Python, Go, Rust, JS, TS, Ruby, Java, C#, PHP, Lua, HJSON.",
-    "version": "0.1.1",
+    "description": "Highlight and lint SQL strings and SQL files. Python, Go, Rust, JS, TS, Ruby, Java, C#, PHP, Lua, HJSON, MKON.",
+    "version": "0.2.0",
     "author": "qufiwefefwoyn <qufiwefefwoyn@gmail.com>",
     "publisher": "Sam-Strand",
     "license": "MIT",
@@ -37,7 +37,8 @@
         "onLanguage:sql",
         "onLanguage:php",
         "onLanguage:lua",
-        "onLanguage:hjson"
+        "onLanguage:hjson",
+        "onLanguage:mkon"
     ],
     "main": "./dist/extension.js",
     "scripts": {
@@ -138,6 +139,26 @@
                 "scopeName": "hjson-inline-sql-string.injection",
                 "injectTo": [
                     "source.hjson"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.sql": "sql"
+                }
+            },
+            {
+                "path": "./syntaxes/mkon-multiline.json",
+                "scopeName": "mkon-multiline.injection",
+                "injectTo": [
+                    "source.mkon"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.sql": "sql"
+                }
+            },
+            {
+                "path": "./syntaxes/mkon-inline-sql-string.json",
+                "scopeName": "mkon-inline-sql-string.injection",
+                "injectTo": [
+                    "source.mkon"
                 ],
                 "embeddedLanguages": {
                     "meta.embedded.sql": "sql"

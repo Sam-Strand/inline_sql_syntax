@@ -1,6 +1,13 @@
 src/**
 .gitignore
-docker-compose.yml
+.vscodeignore
 docs/**
 .github/**
 tests/**
+Dockerfile
+docker-compose.yaml
+build.sh
+pnpm-lock.yaml
+package-lock.json
+vite.config.ts
+*.vsix

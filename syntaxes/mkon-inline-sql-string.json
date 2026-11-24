@@ -1,0 +1,33 @@
+{
+    "scopeName": "mkon-inline-sql-string.injection",
+    "fileTypes": [
+        "mkon"
+    ],
+    "injectionSelector": "L:source.mkon string.quoted.multiline.mkon -comment",
+    "patterns": [
+        {
+            "comment": "SQL inside MKON ''' string, -- sql marker",
+            "begin": "(--\\s*sql)",
+            "beginCaptures": {
+                "1": { "name": "comment.sql" }
+            },
+            "end": "(?=''')",
+            "contentName": "meta.embedded.sql",
+            "patterns": [
+                { "include": "source.sql" }
+            ]
+        },
+        {
+            "comment": "SQL inside MKON ''' string, SQL keyword",
+            "begin": "(?i)(SELECT |INSERT |DELETE |UPDATE |CREATE |DROP )",
+            "beginCaptures": {
+                "1": { "name": "keyword.sql" }
+            },
+            "end": "(?=''')",
+            "contentName": "meta.embedded.sql",
+            "patterns": [
+                { "include": "source.sql" }
+            ]
+        }
+    ]
+}
